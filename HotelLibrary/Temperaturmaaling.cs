@@ -20,7 +20,11 @@ namespace HotelLibrary
 
         }
 
-
+        private bool CheckTempLength(double temp)
+        {
+            if()
+            return true;
+        }
         
 
     }
