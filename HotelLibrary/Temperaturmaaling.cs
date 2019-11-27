@@ -36,7 +36,10 @@ namespace HotelLibrary
             _datoTid = datoTid;
             _temperature = temperature;
         }
-        
+        public override string ToString()
+        {
+            return $"HotelID: {_hotelID}, DatoTid: {_datoTid}, Temperature: {_temperature}";
+        }
 
     }
 }
