@@ -21,17 +21,6 @@ namespace TemperaturmaalingTest
             Assert.AreEqual(testClass.HotelID, 0);
             Assert.AreEqual(testClass.Temperature, 20.1);
         }
-
-        [TestMethod]
-        public void TestMethod2()
-        {
-            Assert.AreEqual(false, testClass.CheckTempLength(20.1234556));
-            Assert.AreEqual(true, testClass.CheckTempLength(20.1));
-            Assert.AreEqual(true, testClass.CheckTempLength(20));
-            Assert.AreEqual(false, testClass.CheckTempLength(20.12));
-            Assert.AreEqual(true, testClass.CheckTempLength(20.10));
-        }
-
         [TestMethod]
         public void TestMethod3()
         {

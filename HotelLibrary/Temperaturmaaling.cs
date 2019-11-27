@@ -10,6 +10,21 @@ namespace HotelLibrary
         private DateTimeOffset _datoTid;
         private double _temperature;
 
+        public int HotelID
+        {
+            get { return _hotelID; }
+            set { _hotelID = value; }
+        }
+        public DateTimeOffset DatoTid
+        {
+            get { return _datoTid; }
+            set { _datoTid = value; }
+        }
+        public double Temperature
+        {
+            get { return _temperature; }
+            set { _temperature = value; }
+        }
         public Temperaturmaaling()
         {
 
@@ -17,13 +32,9 @@ namespace HotelLibrary
 
         public Temperaturmaaling(int hotelID, DateTimeOffset datoTid, double temperature)
         {
-
-        }
-
-        private bool CheckTempLength(double temp)
-        {
-            if()
-            return true;
+            _hotelID = hotelID;
+            _datoTid = datoTid;
+            _temperature = temperature;
         }
         
 
