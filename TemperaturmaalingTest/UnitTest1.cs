@@ -10,7 +10,7 @@ namespace TemperaturmaalingTest
     public class UnitTest1
     {
         Temperaturmaaling testClass = new Temperaturmaaling();
-            DateTimeOffset date = DateTimeOffset.Now;
+            DateTime date = DateTime.Now;
         
 
         [TestMethod]

@@ -7,7 +7,7 @@ namespace HotelLibrary
     public class Temperaturmaaling
     {
         private int _hotelID;
-        private DateTimeOffset _datoTid;
+        private DateTime _datoTid;
         private double _temperature;
 
         public int HotelID
@@ -15,7 +15,7 @@ namespace HotelLibrary
             get { return _hotelID; }
             set { _hotelID = value; }
         }
-        public DateTimeOffset DatoTid
+        public DateTime DatoTid
         {
             get { return _datoTid; }
             set { _datoTid = value; }
@@ -30,7 +30,7 @@ namespace HotelLibrary
 
         }
 
-        public Temperaturmaaling(int hotelID, DateTimeOffset datoTid, double temperature)
+        public Temperaturmaaling(int hotelID, DateTime datoTid, double temperature)
         {
             _hotelID = hotelID;
             _datoTid = datoTid;
