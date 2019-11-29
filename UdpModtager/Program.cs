@@ -25,7 +25,7 @@ namespace UdpModtager
                     string receivedData = Encoding.UTF8.GetString(receiveBytes);
                     //Object object = Newtonsoft.Json.JsonConvert.DeserializeObject<Object>(receiveBytes);
                     Console.WriteLine(receivedData);
-                    Console.WriteLine("Data received: " + remoteIpEnd.Port);
+                    Console.WriteLine("Data received on port: " + remoteIpEnd.Port);
 
                 }
             }
