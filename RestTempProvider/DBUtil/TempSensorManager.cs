@@ -9,7 +9,16 @@ namespace RestTempProvider.DBUtil
 {
     public class TempSensorManager
     {
-        private const string ConnectionString = "";
+        //thomas
+        //private const string ConnectionString = "";
+
+        //christian
+        //private const string ConnectionString = "";
+
+        //azure
+        //private const string ConnectionString = "";
+
+        private const string ConnectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=ThomasTestRoyalHotels;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
         private const string INSERT = "INSERT INTO Hoteltemps (Tempe_Date, Hotel_Id, Tempe_Value) VALUES (@Tempe_Date, @Hotel_Id, @Tempe_Value)";
 
