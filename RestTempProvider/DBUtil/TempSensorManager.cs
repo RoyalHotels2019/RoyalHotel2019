@@ -21,7 +21,7 @@ namespace RestTempProvider.DBUtil
 
 
         private const string INSERT = "INSERT INTO Hoteltemps (Tempe_Date, Hotel_Id, Tempe_Value) VALUES (@Tempe_Date, @Hotel_Id, @Tempe_Value)";
-
+        
 
         public bool Post(Temperaturmaaling maaling)
         {
