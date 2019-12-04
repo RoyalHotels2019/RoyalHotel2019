@@ -35,7 +35,7 @@ namespace UdpModtager
                     data = Newtonsoft.Json.JsonConvert.DeserializeObject<TemperaturData>(receivedData);
                     tMaaling = new Temperaturmaaling(data.HotelID, DateTime.Now, data.Temperature);
                     //Object object = Newtonsoft.Json.JsonConvert.DeserializeObject<Object>(receiveBytes);
-                    //tsController.Post(tMaaling);
+                    tsController.Post(tMaaling);
                     Console.WriteLine(receivedData);
                     Console.WriteLine(tMaaling);
                     Console.WriteLine("Data received on port: " + remoteIpEnd.Port);
