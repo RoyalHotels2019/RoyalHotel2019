@@ -4,6 +4,7 @@ using System.Net.Sockets;
 using System.Text;
 using HotelLibrary;
 using RestTempProvider.Controllers;
+using System.Data.SqlClient;
 
 namespace UdpModtager
 {

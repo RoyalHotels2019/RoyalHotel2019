@@ -30,9 +30,9 @@ namespace RestTempProvider.DBUtil
             SqlConnection connection = new SqlConnection(ConnectionString);
             connection.Open();
             SqlCommand cmd = new SqlCommand(INSERT, connection);
-            cmd.Parameters.AddWithValue("@Tempe_Date", maaling.HotelID);
-            cmd.Parameters.AddWithValue("@Hotel_Id", maaling.DatoTid);
-            cmd.Parameters.AddWithValue("@Tempe_Values", maaling.Temperature);
+            cmd.Parameters.AddWithValue("@Tempe_Date", maaling.DatoTid);
+            cmd.Parameters.AddWithValue("@Hotel_Id", maaling.HotelID);
+            cmd.Parameters.AddWithValue("@Tempe_Value", maaling.Temperature);
 
 
             int rowsAffected = cmd.ExecuteNonQuery();
