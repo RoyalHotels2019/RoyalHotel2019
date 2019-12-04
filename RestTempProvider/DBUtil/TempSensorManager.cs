@@ -11,12 +11,13 @@ namespace RestTempProvider.DBUtil
     {
         //thomas
         private const string ConnectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ThomasTestRoyalHotels;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-        
+
         //christian
         //private const string ConnectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=RoyalHotel2019;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
         //azure
-        //private const string ConnectionString = "";
+        //private const string ConnectionString = @"Server=tcp:thofoserver.database.windows.net,1433;Initial Catalog = thofodatabase; Persist Security Info=False;User ID = adminthofo; Password=grt45Lde; MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout = 30;";
+
 
 
         private const string INSERT = "INSERT INTO Hoteltemps (Tempe_Date, Hotel_Id, Tempe_Value) VALUES (@Tempe_Date, @Hotel_Id, @Tempe_Value)";
