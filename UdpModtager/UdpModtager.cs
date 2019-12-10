@@ -5,6 +5,7 @@ using System.Text;
 using HotelLibrary;
 using RestTempProvider.Controllers;
 using System.Data.SqlClient;
+using System.Collections.Generic;
 
 namespace UdpModtager
 {
@@ -13,7 +14,9 @@ namespace UdpModtager
         static void Main(string[] args)
         {
 
-            TempSensorController tsController = new TempSensorController();
+            //TempSensorController tsController = new TempSensorController();
+
+            Consumer restConsumer = new Consumer("/HotelTemps");
 
             Temperaturmaaling tMaaling;
 
@@ -27,6 +30,8 @@ namespace UdpModtager
             {
                 Console.WriteLine("Trying to receive client data");
 
+                List<Temperaturmaaling> maalinger;
+                List<Temperaturmaaling> sletMaalinger=new List<Temperaturmaaling>();
 
                 while (true)
                 {
@@ -35,7 +40,22 @@ namespace UdpModtager
                     data = Newtonsoft.Json.JsonConvert.DeserializeObject<TemperaturData>(receivedData);
                     tMaaling = new Temperaturmaaling(data.HotelID, DateTime.Now, data.Temperature);
                     //Object object = Newtonsoft.Json.JsonConvert.DeserializeObject<Object>(receiveBytes);
-                    tsController.Post(tMaaling);
+                    restConsumer.Post(tMaaling);
+                    maalinger = restConsumer.GetAll();
+                    sletMaalinger.Clear();
+                    foreach (Temperaturmaaling m in maalinger)
+                    {
+                        TimeSpan tt = DateTime.Now - m.DatoTid;
+                        if(tt.Days>=60)
+                        {
+                            sletMaalinger.Add(m);
+                        }
+                    }
+                    foreach (Temperaturmaaling m in sletMaalinger)
+                    {
+                        restConsumer.Delete(m.DatoTid);
+                    }
+                    //tsController.Post(tMaaling);
                     Console.WriteLine(receivedData);
                     Console.WriteLine(tMaaling);
                     Console.WriteLine("Data received on port: " + remoteIpEnd.Port);
