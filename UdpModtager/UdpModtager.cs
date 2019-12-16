@@ -16,7 +16,7 @@ namespace UdpModtager
 
             //TempSensorController tsController = new TempSensorController();
 
-            Consumer restConsumer = new Consumer("/HotelTemps");
+            Consumer restConsumer = new Consumer("hoteltemps");
 
             TemperaturData tMaaling;
 
