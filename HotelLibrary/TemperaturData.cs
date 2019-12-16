@@ -9,12 +9,12 @@ namespace HotelLibrary
         private int _hotelID;
         private double _temperature;
 
-        public int hotelID
+        public int HotelID
         {
             get { return _hotelID; }
             set { _hotelID = value; }
         }
-        public double temperature
+        public double Temperature
         {
             get { return _temperature; }
             set { _temperature = value; }

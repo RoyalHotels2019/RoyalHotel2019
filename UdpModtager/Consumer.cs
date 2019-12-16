@@ -10,8 +10,7 @@ namespace UdpModtager
 {
     public class Consumer
     {
-        //Azure URI:
-        //protected const string baseURIBit = "";
+
         protected const string baseURIBit = "http://localhost:50182/api/";
         protected string URI;
 
@@ -59,7 +58,7 @@ namespace UdpModtager
             return ok;
         }
 
-        public bool Post(TemperaturData maaling)
+        public bool Post(Temperaturmaaling maaling)
         {
             bool ok;
 
