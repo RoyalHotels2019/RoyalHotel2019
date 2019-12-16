@@ -11,7 +11,7 @@ namespace UdpModtager
     public class Consumer
     {
 
-        protected const string baseURIBit = "http://localhost:48074/api/";
+        protected const string baseURIBit = "http://localhost:50182/api/";
         protected string URI;
 
         public Consumer(string uniqueURIBit)

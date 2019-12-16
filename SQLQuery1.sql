@@ -82,7 +82,7 @@ CREATE TABLE Hotels(
 
 
 CREATE TABLE Hoteltemps(
-	Tempe_Date datetime NOT NULL,
+	Tempe_Date datetime NOT NULL default getdate(),
 	Hotel_Id int NOT NULL,
 	Tempe_Value float,
 
