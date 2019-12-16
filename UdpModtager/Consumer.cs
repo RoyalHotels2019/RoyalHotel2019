@@ -58,7 +58,7 @@ namespace UdpModtager
             return ok;
         }
 
-        public bool Post(Temperaturmaaling maaling)
+        public bool Post(TemperaturData maaling)
         {
             bool ok;
 

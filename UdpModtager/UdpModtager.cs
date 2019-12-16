@@ -18,7 +18,7 @@ namespace UdpModtager
 
             Consumer restConsumer = new Consumer("hoteltemps");
 
-            Temperaturmaaling tMaaling;
+            TemperaturData tMaaling;
 
             TemperaturData data;
 
@@ -38,23 +38,23 @@ namespace UdpModtager
                     byte[] receiveBytes = udpClient.Receive(ref remoteIpEnd);
                     string receivedData = Encoding.UTF8.GetString(receiveBytes);
                     data = Newtonsoft.Json.JsonConvert.DeserializeObject<TemperaturData>(receivedData);
-                    tMaaling = new Temperaturmaaling(data.HotelID, DateTime.Now, data.Temperature);
+                    tMaaling = new TemperaturData(data.HotelID, data.Temperature);
                     //Object object = Newtonsoft.Json.JsonConvert.DeserializeObject<Object>(receiveBytes);
                     restConsumer.Post(tMaaling);
-                    maalinger = restConsumer.GetAll();
-                    sletMaalinger.Clear();
-                    foreach (Temperaturmaaling m in maalinger)
-                    {
-                        TimeSpan tt = DateTime.Now - m.DatoTid;
-                        if(tt.Days>=60)
-                        {
-                            sletMaalinger.Add(m);
-                        }
-                    }
-                    foreach (Temperaturmaaling m in sletMaalinger)
-                    {
-                        restConsumer.Delete(m.DatoTid);
-                    }
+                    //maalinger = restConsumer.GetAll();
+                    //sletMaalinger.Clear();
+                    //foreach (Temperaturmaaling m in maalinger)
+                    //{
+                    //    TimeSpan tt = DateTime.Now - m.DatoTid;
+                    //    if(tt.Days>=60)
+                    //    {
+                    //        sletMaalinger.Add(m);
+                    //    }
+                    //}
+                    //foreach (Temperaturmaaling m in sletMaalinger)
+                    //{
+                    //    restConsumer.Delete(m.DatoTid);
+                    //}
                     //tsController.Post(tMaaling);
                     Console.WriteLine(receivedData);
                     Console.WriteLine(tMaaling);
