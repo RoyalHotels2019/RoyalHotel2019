@@ -16,16 +16,12 @@ namespace RestTempProvider.Controllers
     {
         TempSensorManager manager = new TempSensorManager();
 
-        private static List<Temperaturmaaling> templist = new List<Temperaturmaaling>()
-        {
-            //new Temperaturmaaling;
-        };
 
         // POST: api/TempSensor
         [HttpPost]
-        public bool Post([FromBody] Temperaturmaaling maaling)
+        public bool Post([FromBody] TemperaturData data)
         {
-            return manager.Post(maaling);
+            return manager.Post(data);
         }
 
     }

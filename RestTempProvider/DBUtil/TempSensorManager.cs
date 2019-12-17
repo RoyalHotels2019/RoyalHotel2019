@@ -20,19 +20,18 @@ namespace RestTempProvider.DBUtil
 
 
 
-        private const string INSERT = "INSERT INTO Hoteltemps (Tempe_Date, Hotel_Id, Tempe_Value) VALUES (@Tempe_Date, @Hotel_Id, @Tempe_Value)";
+        private const string INSERT = "INSERT INTO Hoteltemps (Hotel_Id, Tempe_Value) VALUES (@Hotel_Id, @Tempe_Value)";
         
 
-        public bool Post(Temperaturmaaling maaling)
+        public bool Post(TemperaturData data)
         {
             bool retValue;
 
             SqlConnection connection = new SqlConnection(ConnectionString);
             connection.Open();
             SqlCommand cmd = new SqlCommand(INSERT, connection);
-            cmd.Parameters.AddWithValue("@Tempe_Date", maaling.DatoTid);
-            cmd.Parameters.AddWithValue("@Hotel_Id", maaling.HotelID);
-            cmd.Parameters.AddWithValue("@Tempe_Value", maaling.Temperature);
+            cmd.Parameters.AddWithValue("@Hotel_Id", data.HotelID);
+            cmd.Parameters.AddWithValue("@Tempe_Value", data.Temperature);
 
 
             int rowsAffected = cmd.ExecuteNonQuery();

@@ -1,8 +1,10 @@
 using HotelLibrary;
+using RestTempProvider.DBUtil;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using UdpModtager;
 
 namespace TemperaturmaalingTest
 {
@@ -10,8 +12,22 @@ namespace TemperaturmaalingTest
     public class UnitTest1
     {
         Temperaturmaaling testClass = new Temperaturmaaling();
+        TempSensorManager manager = new TempSensorManager();
             DateTime date = DateTime.Now;
+        Consumer consumer= new Consumer("hoteltemps");
         
+
+        [TestMethod]
+        public void TestPost1()
+        {
+            Assert.AreEqual(manager.Post(new TemperaturData(0, 26.0)), true);
+        }
+        [TestMethod]
+        public void TestPost2()
+        {
+            Assert.AreEqual(consumer.Post(new TemperaturData(0, 26.0)), true);
+        }
+
 
         [TestMethod]
         public void TestMethod1()

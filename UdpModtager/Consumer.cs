@@ -19,45 +19,6 @@ namespace UdpModtager
             URI = baseURIBit + uniqueURIBit;
             ;
         }
-        public List<Temperaturmaaling> GetAll()
-        {
-            List<Temperaturmaaling> maalinger = new List<Temperaturmaaling>();
-
-            using (HttpClient client = new HttpClient())
-            {
-                Task<string> resTask = client.GetStringAsync(URI);
-                String jsonStr = resTask.Result;
-
-                maalinger = JsonConvert.DeserializeObject<List<Temperaturmaaling>>(jsonStr);
-            }
-            return maalinger;
-        }
-        public bool Delete(DateTime date)
-        {
-            bool ok;
-
-
-            using (HttpClient client = new HttpClient())
-            {
-                Task<HttpResponseMessage> deleteAsync = client.DeleteAsync($"{URI}/{date}");
-
-                HttpResponseMessage resp = deleteAsync.Result;
-
-                if (resp.IsSuccessStatusCode)
-                {
-                    String jsonString = resp.Content.ReadAsStringAsync().Result;
-                    ok = JsonConvert.DeserializeObject<bool>(jsonString);
-                }
-                else
-                {
-                    ok = false;
-                }
-
-            }
-
-            return ok;
-        }
-
         public bool Post(TemperaturData maaling)
         {
             bool ok;
@@ -66,7 +27,7 @@ namespace UdpModtager
             using (HttpClient client = new HttpClient())
             {
                 string jsonString = JsonConvert.SerializeObject(maaling);
-                StringContent content = new StringContent(jsonString, Encoding.ASCII, "application/json");
+                StringContent content = new StringContent(jsonString, Encoding.UTF8, "application/json");
 
 
                 Task<HttpResponseMessage> postAsync = client.PostAsync(URI, content);
@@ -86,5 +47,45 @@ namespace UdpModtager
             }
             return ok;
         }
+        //public List<Temperaturmaaling> GetAll()
+        //{
+        //    List<Temperaturmaaling> maalinger = new List<Temperaturmaaling>();
+
+        //    using (HttpClient client = new HttpClient())
+        //    {
+        //        Task<string> resTask = client.GetStringAsync(URI);
+        //        String jsonStr = resTask.Result;
+
+        //        maalinger = JsonConvert.DeserializeObject<List<Temperaturmaaling>>(jsonStr);
+        //    }
+        //    return maalinger;
+        //}
+        //public bool Delete(DateTime date)
+        //{
+        //    bool ok;
+
+
+        //    using (HttpClient client = new HttpClient())
+        //    {
+        //        Task<HttpResponseMessage> deleteAsync = client.DeleteAsync($"{URI}/{date}");
+
+        //        HttpResponseMessage resp = deleteAsync.Result;
+
+        //        if (resp.IsSuccessStatusCode)
+        //        {
+        //            String jsonString = resp.Content.ReadAsStringAsync().Result;
+        //            ok = JsonConvert.DeserializeObject<bool>(jsonString);
+        //        }
+        //        else
+        //        {
+        //            ok = false;
+        //        }
+
+        //    }
+
+        //    return ok;
+        //}
+
+        
     }
 }
